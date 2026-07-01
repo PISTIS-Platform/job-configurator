@@ -1,0 +1,27 @@
+{
+  "@context": {
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcterms": "http://purl.org/dc/terms/"
+  },
+  "@graph": [
+    {
+      "@id": "https://piveau.io/set/new-distribution/",
+      "@type": "dcat:Distribution",
+      "dcterms:format": {
+        "@id": "http://publications.europa.eu/resource/authority/file-type/{{ file_type }}"
+      },
+      "dcterms:title": "{{ data_dist_name }}",
+      "dcat:accessURL": {
+        "@id": "{{ data_dist_accessURL }}"
+      },
+      "dcterms:issued": {
+          "@type": "xsd:dateTime",
+          "@value": "{{ date_issued }}"
+      },
+      "pst:isEncrypted": {
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+        "@value": "{{ isEncrypted }}"
+      }
+    }
+  ]
+}

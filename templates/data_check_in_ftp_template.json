@@ -1,0 +1,36 @@
+{
+    "job_name": "job{{ job_id }}",
+    "source": "job",
+    "endpoint": "http://data-check-in.default.svc.cluster.local:8296/data/getDataFromFTPServer",
+    "input_data": [
+        {
+            "name": "ftp_server",
+            "value": "{{ ftp_server }}"
+        },
+        {
+            "name": "ftp_user",
+            "value": "{{ ftp_user }}"
+        },
+        {
+            "name": "ftp_pwd",
+            "value": "{{ ftp_password }}"
+        },
+        {
+            "name": "ftp_file_path",
+            "value": "{{ ftp_file_path }}"
+        },
+        {
+            "name": "ds_name",
+            "value": "{{ dataset_name }}"
+        },
+        {
+            "name": "ds_format",
+            "value": "{{ dataset_format }}"
+        }    
+    ],
+    "method": "post",
+    "content-type": "application/json",
+    "destination_type": "memory",
+    "response_dataset_field_path": "data.file_url",
+    "response_metadata_field_path": "none"
+}

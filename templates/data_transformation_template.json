@@ -1,0 +1,20 @@
+{
+    "job_name": "job{{ job_id }}",
+    "source": "job{{ source_id }}.source",
+    "endpoint": "http://data-transformation.default.svc.cluster.local:8298/transform/",
+    "input_data": [
+        {
+            "name": "file",
+            "value": "job{{ job_id }}.source"
+        },
+        {
+            "name": "transformation_definition",
+            "value": "{{ transformation_definition }}"
+        }
+    ],
+    "method": "post",
+    "content-type": "*",
+    "destination_type": "factory_storage",
+    "response_dataset_field_path": "file",
+    "response_metadata_field_path": "none"
+}

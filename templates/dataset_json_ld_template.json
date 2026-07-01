@@ -1,0 +1,91 @@
+{
+    "@context": {
+      "dcat": "http://www.w3.org/ns/dcat#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "vcard": "http://www.w3.org/2006/vcard/ns#",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "dcterms": "http://purl.org/dc/terms/",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "odrl": "http://www.w3.org/ns/odrl/2/",
+      "pst": "https://www.pistis-project.eu/ns/voc#"
+    },
+    "@graph": [
+      {
+        "@id": "_:g0",
+        "@type": "foaf:Organization",
+        "foaf:mbox": {
+          "@id": "{{ foaf_mbox_id }}"
+        },
+        "foaf:name": "{{ foaf_name }}"
+      },
+      {
+        "@id": "https://piveau.io/set/data/test-dataset",
+        "@type": "dcat:Dataset",
+        "dcterms:description": {
+          "@language": "{{ ds_language }}",
+          "@value": "{{ ds_description }}"
+        },
+        "dcterms:issued": {
+          "@type": "xsd:dateTime",
+          "@value": "{{ date_issued }}"
+        },
+        "dcterms:language": {
+          "@id": "http://publications.europa.eu/resource/authority/language/ENG"
+        },
+        "dcterms:modified": {
+          "@type": "xsd:dateTime",
+          "@value": "{{ date_modified }}"
+        },
+        "dcat:theme": {
+                "@id": "{{ category }}"
+        },
+        "dcterms:publisher": {
+          "@id": "_:g0"
+        },
+        "dcterms:title": {
+          "@language": "en",
+          "@value": "{{ ds_title }}"
+        },
+        "dcat:distribution": {
+          "@id": "https://piveau.io/set/distribution/1"
+        },
+        "dcat:keyword": "{{ keywords }}",
+        "pst:insightsResult": [
+          {
+            "@value": "{{ insights }}"
+          }
+        ]
+      },
+      {
+        "@id": "https://piveau.io/set/distribution/1",
+        "@type": "dcat:Distribution",
+        "dcterms:format": {
+          "@id": "http://publications.europa.eu/resource/authority/file-type/{{ file_type }}"
+        },
+        "dcterms:license": {
+          "@id": "_:g1"
+        },
+        "dcterms:title": "{{ file_name }}",
+        "dcat:accessURL": {
+          "@id": "{{ accessURL }}"
+        },
+        "dcterms:issued": {
+          "@type": "xsd:dateTime",
+          "@value": "{{ date_issued_dist }}"
+        },
+        "dcat:byteSize": {
+          "@type": "xsd:decimal",
+          "@value": "{{ ds_byte_size }}"
+        },
+        "pst:isEncrypted": {
+          "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+          "@value": "{{ isEncrypted }}"
+        },
+        "pst:isTransformed": {
+          "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+          "@value": "false"
+        } 
+      }
+    ]
+}
